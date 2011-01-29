@@ -1,0 +1,6 @@
+<% if post.comments.count == 0 %>
+<%= link_to "Laisser un commentaire", post_path(post, :anchor => "comments") %>
+<% else %>
+<%= link_to pluralize(post.comments.count, "commentaire"), post_path(post, :anchor => "comments") %> 
+dernier commentaire laissé par <%= post.comments.all.last.name %>
+<% end %>

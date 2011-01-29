@@ -1,0 +1,161 @@
+<% content_for :title do %><%= @post.title %><% end %>
+
+<% content_for :description do %><%= description(@post.content) %><% end %>
+
+<% if current_user %>
+<% content_for :robots do %> 
+<meta name="robots" content="noarchive"/>
+<meta name="robots" content="noindex, nofollow"/>
+<% end %>
+<% end %>
+
+<% content_for :adminbar_left do %> 
+
+<li><%= link_to "Modifier l'article", edit_post_path(@post) %></li>
+
+<% if @post.commentable %>
+
+<li>
+<%= form_for(@post) do |f| %>
+<div><%= f.hidden_field :commentable, :value => "false" %></div>
+<div><%= image_submit_tag "lightbulb-on.png", :class => "comments-toggle", :title => "Commentaires autorisés", :alt => "Commentaires autorisés" %></div>
+<% end %>
+</li>
+
+<% else %>
+
+<li>
+<%= form_for(@post) do |f| %>
+<div><%= f.hidden_field :commentable, :value => "true" %></div>
+<div><%= image_submit_tag "lightbulb-off.png", :class => "comments-toggle", :title => "Commentaires fermés", :alt => "Commentaires fermés" %></div>
+<% end %>
+</li>
+
+<% end %>
+
+<% end %>
+
+<% content_for :adminbar_right do %> 
+<li class="right"><%= link_to "Supprimer l'article", post_path(@post), :confirm => "Are you sure you want to delete this post?", :method => :delete, :class => "delete" %></li>
+<% end %>
+
+<div class="post">
+	<h2><%= link_to @post.title, @post, :class => "article" %>
+	<span class="nobreak">
+		<span class="author"><%= @post.author %></span>
+		<span class="date"><%= @post.posted_at.strftime("%b %d") %></span>
+	</span>
+	</h2>
+	
+	<p class="meta">
+		<%= render :partial => "meta", :locals => { :post => @post } %>
+	</p>
+		
+	<div class="entry">
+		<%= @post.content.html_safe %>
+	</div><!--entry-->
+	
+  <ul class="social">    
+		<li>
+		<script type="text/javascript">
+		//<![CDATA[
+		(function() {
+		document.write('<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="yourtwitteraccount">Tweet</a>');
+		var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = 'http://platform.twitter.com/widgets.js';
+		s1.parentNode.insertBefore(s, s1);
+		})();
+		//]]>
+		</script>
+		</li>
+		
+		<li>
+		<script type="text/javascript">
+		//<![CDATA[
+		(function() {
+		document.write('<fb:like></fb:like>');
+		var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = 'http://connect.facebook.net/en_US/all.js#xfbml=1';
+		s1.parentNode.insertBefore(s, s1);
+		})();
+		//]]>
+		</script>
+		</li>
+	</ul><!--social-->
+	
+	<div class="comments_canvas">
+		<% if @post.comments.count > 0 %>
+    <h2 class="comment_count"><%= pluralize(@post.comments.count, "commentaire") %></h2>
+		
+		<div id="comments" class="comments">
+			<% for comment in @post.comments.all %> 
+			<%= render :partial => comment, :locals => { :post => @post } %> 
+			<% end %>
+		</div><!--comments-->
+		<% else %>
+		
+		<h2 class="comment_count plain"></h2>
+		<div id="comments" class="comments"></div><!--comments-->
+		<% end %>
+		
+		<div id="post_a_comment">
+		<% if !@post.commentable %>
+		<h2 id="comments_closed">Désolé, les commentaires ne sont pas autorisés pour cet article.</h2>
+		<% end %>
+
+		<% if @post.commentable %>
+		<h2>Laisser un commentaire</h2>
+		<%= form_for([@post, @comment], :remote => true) do |f| %>
+		<div id="new_comment_canvas">
+			<fieldset>
+				<div class="form-field">
+				<% if current_user %>
+					<%= f.text_field :name, :value => current_user.initials, :size => "40" %> 
+				<% else %>
+					<%= f.text_field :name, :value => "Votre nom", :size => "40" %> 
+				<% end %>
+				</div>
+				
+				<div class="form-field">
+					<%= f.text_field :email, :value => "Votre adresse Email", :size => "40" %> 
+				</div>
+
+				<div class="form-field">
+					<%= f.text_field :website, :value => "Votre site web", :size => "40" %> 
+				</div>	
+			</fieldset>
+			
+			<fieldset>
+				<div class="form-field">
+					<%= f.text_area :content, :cols => "55", :rows => "6", :value => "Exprimer-vous." %>
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<div class="form-submit">
+					<%= f.submit "Laisser mon commentaire", :disable_with => "Post comment" %> <span>ou </span> <%= link_to "voir l'apperçu", preview_post_comments_path(@post), :id => "preview_comment_link", :rel => "nofollow" %>
+				</div>
+			</fieldset>
+		</div><!-- new_comment_canvas -->
+		
+		<div id="comment_preview_canvas">
+			<div id="comment_preview"></div>
+			
+			<div class="form-submit">
+				<%= f.submit "Poster le commentaire", :disable_with => "Poster le commentaire", :id => "comment_submit_preview" %> <span>ou </span> <a id="edit_comment_link" href="#">Modifier</a>
+			</div>
+		</div><!--comment_preview_canvas-->
+		<% end %> 
+		<% end %>
+		</div><!--post_a_comment-->
+		
+	</div><!--comments_canvas-->
+</div><!--post-->
+
+<% content_for :sidebar do %> 
+<%= render :partial => "layouts/sidebar" %>
+<% end %>

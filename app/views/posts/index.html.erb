@@ -1,0 +1,48 @@
+<% content_for :title do %>Blogcast::Première plateforme Rails de Blogging <% end %>
+
+<% content_for :description do %> <% end %>
+
+<% if current_user %>
+<% content_for :robots do %> 
+<meta name="robots" content="noarchive"/>
+<meta name="robots" content="noindex, nofollow"/>
+<% end %>
+<% end %>
+
+<% if @posts.count == 0 %>
+
+<% if current_user %>
+<div class="post">
+	<h2>Allez! au boulot</h2>
+  <p class="meta"><%= link_to "Créez", :controller => "posts", :action => "new" %> votre premier article. </p>
+</div>
+<% else %>
+  <div class="post"></div>
+<% end %>
+
+<% else %>
+
+<% for post in @posts %>
+<div class="post">
+	<h2><%= link_to post.title, post %>
+	<span class="nobreak">
+		<span class="author"><%= post.author %></span>
+		<span class="date"><%= post.posted_at.strftime("%b %d") %></span>
+	</span>
+	</h2>
+	
+	<p class="meta">
+		<%= render :partial => "meta", :locals => { :post => post } %>	
+	</p>
+		
+	<div class="entry">
+		<%= post.content.html_safe %>
+	</div>
+</div>
+<% end %>
+
+<% end %>
+
+<% content_for :sidebar do %> 
+<%= render :partial => "layouts/sidebar" %>
+<% end %>

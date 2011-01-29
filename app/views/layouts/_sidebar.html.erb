@@ -1,0 +1,19 @@
+<div class="sidebar">
+	<div class="block-content" id="intro">
+		<h2><%= link_to "Bloggez autrement.", posts_path %></h2>
+		<p>Un moteur de blogging simple et intuitif.</p>
+	</div><!--block-content-->
+	
+	<div class="block-content"  id="search">
+		<%= link_to "Blogcast Archive", archives_path %>
+		
+		<form method="get" action="/search">
+			<fieldset>
+				<input name="requete" type="text"/>
+				<input name="sitesearch" value="http://domain.com/blog" type="hidden"/>
+			</fieldset>
+		</form>
+	</div><!--block-content-->
+	
+	<p class="subscribe"><a href="#">souscrire à ce blog</a></p>
+</div><!--sidebar-->
