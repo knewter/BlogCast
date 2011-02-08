@@ -1,4 +1,4 @@
-1296252471
+1296291282
 AkismetControllerTest	/home/hassane/RailsApp/Blogcast_1.0.5/test/functional/akismet_controller_test.rb	class AkismetControllerTest 
 AkismetHelper	/home/hassane/RailsApp/Blogcast_1.0.5/app/helpers/akismet_helper.rb	module AkismetHelper
 AkismetHelperTest	/home/hassane/RailsApp/Blogcast_1.0.5/test/unit/helpers/akismet_helper_test.rb	class AkismetHelperTest 
