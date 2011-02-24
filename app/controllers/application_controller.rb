@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, :with => :render_404 #Rails 3.0.1 doesn't work. 'Till 3.1.0
   #filter_parameter_logging :password, :password_confirmation # Scrub sensitive parameters from your log. Moved to config/application.rb
   helper_method :current_user
-  layout proc{ |c| c.request.xhr? ? false : "application" } #Remove layouts for all ajax calls
+  layout proc{ |c| c.request.xhr? ? false : "application" }
   before_filter :instantiate_controller_and_action_names
   
   private

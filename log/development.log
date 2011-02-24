@@ -2780,3 +2780,487 @@ DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope
 DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
 Rendered user_sessions/new.html.erb (3.8ms)
 Completed 200 OK in 30ms (Views: 6.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 09:05:56 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (3.6ms)
+Completed 200 OK in 34ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 09:06:07 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'admin') LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from create at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/user_sessions_controller.rb:13)
+  [1m[36mAREL (55.2ms)[0m  [1mUPDATE "users" SET "login_count" = 9, "current_login_at" = '2011-01-29 09:06:08.037438', "updated_at" = '2011-01-29 09:06:08.047300', "last_login_at" = '2011-01-29 08:57:10.706858', "last_request_at" = '2011-01-29 09:06:08.045294' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 434ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 29 09:06:08 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-01-29 09:06:08.399723', "last_request_at" = '2011-01-29 09:06:08.398555' WHERE ("users"."id" = 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)
+Rendered posts/_meta.html.erb (16.1ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered posts/_meta.html.erb (100.5ms)
+Rendered layouts/_sidebar.html.erb (1.7ms)
+Rendered posts/index.html.erb within layouts/application (339.4ms)
+Completed 200 OK in 360ms (Views: 342.6ms | ActiveRecord: 58.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Sat Jan 29 09:29:34 +0000 2011
+  Processing by PostsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (12.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-29 09:29:34.899672', "updated_at" = '2011-01-29 09:29:34.900697' WHERE ("users"."id" = 1)
+Rendered posts/new.html.erb within layouts/application (187.9ms)
+Completed 200 OK in 525ms (Views: 240.1ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 29 15:21:51 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (84.3ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (21.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-01-29 15:21:52.704615', "last_request_at" = '2011-01-29 15:21:52.702935' WHERE ("users"."id" = 1)[0m
+  [1m[35mSQL (2.8ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)
+Rendered posts/_meta.html.erb (23.2ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered posts/_meta.html.erb (15.1ms)
+Rendered layouts/_sidebar.html.erb (1.5ms)
+Rendered posts/index.html.erb within layouts/application (683.5ms)
+Completed 200 OK in 1009ms (Views: 771.8ms | ActiveRecord: 109.7ms)
+
+
+Started POST "/logout" for 127.0.0.1 at Sat Jan 29 15:21:58 +0000 2011
+  Processing by UserSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE="}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-29 15:21:58.374634', "updated_at" = '2011-01-29 15:21:58.375818' WHERE ("users"."id" = 1)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from destroy at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/user_sessions_controller.rb:22)
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-29 15:21:58.532542', "updated_at" = '2011-01-29 15:21:58.533611' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 324ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:21:58 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (21.6ms)
+Completed 200 OK in 200ms (Views: 66.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 29 15:22:03 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (15.5ms)
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered posts/_meta.html.erb (13.3ms)
+Rendered layouts/_sidebar.html.erb (1.3ms)
+Rendered posts/index.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 102ms (Views: 85.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:22:09 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (4.0ms)
+Completed 200 OK in 135ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:22:16 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"hkairi"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'hkairi') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'hkairi') LIMIT 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 34ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:22:16 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (3.5ms)
+Completed 200 OK in 33ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:22:26 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"hkairi"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'hkairi') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'hkairi') LIMIT 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 149ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:22:26 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (3.9ms)
+Completed 200 OK in 35ms (Views: 6.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:22:32 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"hkairi"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'hkairi') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'hkairi') LIMIT 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 34ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:22:32 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (7.3ms)
+Completed 200 OK in 144ms (Views: 10.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:22:37 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"hkairi"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'hkairi') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'hkairi') LIMIT 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 37ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:22:38 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (3.9ms)
+Completed 200 OK in 34ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:22:44 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'admin') LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from create at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/user_sessions_controller.rb:13)
+  [1m[35mAREL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-29 15:22:44.852251', "login_count" = 10, "current_login_at" = '2011-01-29 15:22:44.851574', "updated_at" = '2011-01-29 15:22:44.854342', "last_login_at" = '2011-01-29 09:06:08.037438' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 312ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 29 15:22:45 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (3.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-01-29 15:22:45.146821', "last_request_at" = '2011-01-29 15:22:45.145700' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (15.2ms)
+  [1m[35mSQL (1.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered posts/_meta.html.erb (15.0ms)
+Rendered layouts/_sidebar.html.erb (1.3ms)
+Rendered posts/index.html.erb within layouts/application (244.0ms)
+Completed 200 OK in 269ms (Views: 243.7ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jan 29 15:23:11 +0000 2011
+  Processing by UsersController#index as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-29 15:23:11.151131', "updated_at" = '2011-01-29 15:23:11.152534' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 277ms (Views: 87.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Sat Jan 29 15:23:13 +0000 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-29 15:23:13.102116', "updated_at" = '2011-01-29 15:23:13.103165' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered users/edit.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 239ms (Views: 60.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Sat Jan 29 15:23:17 +0000 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-29 15:23:17.225008', "updated_at" = '2011-01-29 15:23:17.226345' WHERE ("users"."id" = 1)[0m
+Completed   in 247ms
+Rendering 500 with exception: Missing template users/show with {:formats=>[:html], :locale=>[:en, :en], :handlers=>[:rhtml, :builder, :rxml, :erb, :rjs]} in view paths "/home/hassane/RailsApp/Blogcast_1.0.5/app/views"
+Rendered public/500.html (0.4ms)
+
+
+Started GET "/users/error.css" for 127.0.0.1 at Sat Jan 29 15:23:17 +0000 2011
+  Processing by UsersController#show as CSS
+  Parameters: {"id"=>"error"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.8ms)[0m  UPDATE "users" SET "updated_at" = '2011-01-29 15:23:17.595575', "last_request_at" = '2011-01-29 15:23:17.594418' WHERE ("users"."id" = 1)
+Completed   in 194ms
+Rendering 500 with exception: Missing template users/show with {:formats=>[:css], :locale=>[:en, :en], :handlers=>[:rhtml, :builder, :rxml, :erb, :rjs]} in view paths "/home/hassane/RailsApp/Blogcast_1.0.5/app/views"
+Rendered public/500.html (0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sat Jan 29 15:27:18 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (5.3ms)
+Completed 200 OK in 135ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Sat Jan 29 15:27:24 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"mNdg3ahuwJfeYgcbti3rAVh3i7kDvvqDP6FcwMcrvEE=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'admin') LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from create at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/user_sessions_controller.rb:13)
+  [1m[35mAREL (0.8ms)[0m  UPDATE "users" SET "current_login_at" = '2011-01-29 15:27:24.226268', "updated_at" = '2011-01-29 15:27:24.229795', "last_login_at" = '2011-01-29 15:22:44.851574', "login_count" = 11, "last_request_at" = '2011-01-29 15:27:24.227040' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 174ms
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 29 15:27:24 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2011-01-29 15:27:24.498498', "updated_at" = '2011-01-29 15:27:24.499680' WHERE ("users"."id" = 1)
+  [1m[36mSQL (1.9ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (136.8ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered posts/_meta.html.erb (17.4ms)
+Rendered layouts/_sidebar.html.erb (1.6ms)
+Rendered posts/index.html.erb within layouts/application (342.6ms)
+Completed 200 OK in 366ms (Views: 344.8ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Sat Jan 29 15:27:31 +0000 2011
+  Processing by PostsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-01-29 15:27:31.184123', "updated_at" = '2011-01-29 15:27:31.185172' WHERE ("users"."id" = 1)[0m
+Rendered posts/new.html.erb within layouts/application (71.5ms)
+Completed 200 OK in 312ms (Views: 108.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 08 10:34:22 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (34.8ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mSQL (2.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)
+Rendered posts/_meta.html.erb (125.1ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered posts/_meta.html.erb (14.0ms)
+Rendered layouts/_sidebar.html.erb (1.5ms)
+Rendered posts/index.html.erb within layouts/application (833.4ms)
+Completed 200 OK in 1702ms (Views: 1030.4ms | ActiveRecord: 37.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Tue Feb 08 10:34:48 +0000 2011
+  Processing by UserSessionsController#new as HTML
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+Rendered user_sessions/new.html.erb (4.6ms)
+Completed 200 OK in 206ms (Views: 77.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Tue Feb 08 10:35:37 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"B50Lj649lsSOx/XSnBx5/AjbR3GDxzrq09D6AM6a1OA=", "utf8"=>"✓"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'admin') LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from create at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/user_sessions_controller.rb:13)
+  [1m[35mAREL (38.9ms)[0m  UPDATE "users" SET "last_request_at" = '2011-02-08 10:35:37.898820', "login_count" = 12, "last_login_at" = '2011-01-29 15:27:24.226268', "updated_at" = '2011-02-08 10:35:37.900997', "current_login_at" = '2011-02-08 10:35:37.897872' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 301ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 08 10:35:38 +0000 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "updated_at" = '2011-02-08 10:35:38.310478', "last_request_at" = '2011-02-08 10:35:38.214806' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (18.2ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered posts/_meta.html.erb (14.3ms)
+Rendered layouts/_sidebar.html.erb (1.6ms)
+Rendered posts/index.html.erb within layouts/application (569.6ms)
+Completed 200 OK in 589ms (Views: 572.6ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/posts/2-ben-c-est-le-deuxi-me-article" for 127.0.0.1 at Tue Feb 08 11:22:08 +0000 2011
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2-ben-c-est-le-deuxi-me-article"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 2) LIMIT 1[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (64.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-02-08 11:22:09.228790', "updated_at" = '2011-02-08 11:22:09.230074' WHERE ("users"."id" = 1)
+  [1m[36mSQL (3.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (7.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)
+Rendered layouts/_sidebar.html.erb (2.3ms)
+Rendered posts/show.html.erb within layouts/application (864.3ms)
+Completed 200 OK in 1038ms (Views: 882.8ms | ActiveRecord: 68.4ms)
+
+
+Started GET "/posts/2-ben-c-est-le-deuxi-me-article/edit" for 127.0.0.1 at Tue Feb 08 11:22:35 +0000 2011
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2-ben-c-est-le-deuxi-me-article"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-02-08 11:22:35.631404', "last_request_at" = '2011-02-08 11:22:35.630356' WHERE ("users"."id" = 1)[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE ("posts"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/edit.html.erb within layouts/application (76.6ms)
+Completed 200 OK in 366ms (Views: 117.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/posts/2-ben-c-est-le-deuxi-me-article" for 127.0.0.1 at Tue Feb 08 11:26:48 +0000 2011
+  Processing by PostsController#update as HTML
+  Parameters: {"commit"=>"Enregistrer", "post"=>{"title"=>"ben c'est le deuxième article", "markdown"=>"\r\n</code>![alt text][1]</code>\r\n\r\nOn va voir ce que ça va donner \r\n`def methode(arg)\r\n   puts \"bonjour c'est ma méthode\";\r\nend`\r\nc'est un truc super de pouvoir avoir un apperçu temps réel.\r\n\r\n\r\n  [1]: http://a7.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs347.ash1/29491_388745699404_605324404_3986650_209798_n.jpgBlockquote"}, "authenticity_token"=>"B50Lj649lsSOx/XSnBx5/AjbR3GDxzrq09D6AM6a1OA=", "utf8"=>"✓", "id"=>"2-ben-c-est-le-deuxi-me-article"}
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2011-02-08 11:26:48.813340', "updated_at" = '2011-02-08 11:26:48.814591' WHERE ("users"."id" = 1)
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  UPDATE "posts" SET "markdown" = '
+</code>![alt text][1]</code>
+
+On va voir ce que ça va donner 
+`def methode(arg)
+ puts "bonjour c''est ma méthode";
+end`
+c''est un truc super de pouvoir avoir un apperçu temps réel.
+
+
+ [1]: http://a7.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs347.ash1/29491_388745699404_605324404_3986650_209798_n.jpgBlockquote', "updated_at" = '2011-02-08 11:26:49.023115', "content" = '<p></code><img src="http://a7.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs347.ash1/29491_388745699404_605324404_3986650_209798_n.jpgBlockquote" alt="alt text" /></code></p>
+
+<p>On va voir ce que ça va donner
+<code>def methode(arg)
+ puts "bonjour c''est ma méthode";
+end</code>
+c''est un truc super de pouvoir avoir un apperçu temps réel.</p>' WHERE ("posts"."id" = 2)
+Redirected to http://localhost:3000/posts/2-ben-c-est-le-deuxi-me-article
+Completed 302 Found in 387ms
+
+
+Started GET "/posts/2-ben-c-est-le-deuxi-me-article" for 127.0.0.1 at Tue Feb 08 11:26:49 +0000 2011
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2-ben-c-est-le-deuxi-me-article"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 2) LIMIT 1[0m
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+DEPRECATION WARNING: Base.named_scope has been deprecated, please use Base.scope instead. (called from /home/hassane/RailsApp/Blogcast_1.0.5/app/models/user.rb:4)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+DEPRECATION WARNING: save(false) is deprecated, please give save(:validate => false) instead. (called from current_user_session at /home/hassane/RailsApp/Blogcast_1.0.5/app/controllers/application_controller.rb:38)
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2011-02-08 11:26:49.394258', "updated_at" = '2011-02-08 11:26:49.395574' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)[0m
+Rendered posts/_meta.html.erb (3.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 2)
+Rendered layouts/_sidebar.html.erb (1.4ms)
+Rendered posts/show.html.erb within layouts/application (346.9ms)
+Completed 200 OK in 390ms (Views: 350.6ms | ActiveRecord: 3.9ms)
