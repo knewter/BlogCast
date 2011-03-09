@@ -1,4 +1,4 @@
-require 'Wordpress'
+require 'wordpress'
 
 #Usage:rake rebirth:wordpress["/export/path/wordpress.xml"]
 namespace :rebirth do
